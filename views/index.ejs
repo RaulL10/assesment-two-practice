@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <% if (todos.length === 0) { %>
+      <p>Welcome to <%= title %></p>
+  
+    <% } else { %>
+
+      
+      <ul>
+        <%todos.forEach((t) => { %>
+          <li><%=t.todo %>
+            <form action="/<%=t.id%>?_method=DELETE" method="POST">
+              <input type="submit" value="x">
+            </form>
+          </li>
+          <% }) %>
+        </ul>
+        <%}%>
+        <form action="/" method="POST">
+          <input type="text" name="todo">
+          <button type="submit">Add todo</button>
+        </form>
+      </body>
+</html>
