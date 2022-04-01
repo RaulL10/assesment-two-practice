@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Unit 2 Assesment</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
-    <% if (todos.length === 0) { %>
-      <p>Welcome to <%= title %></p>
+    <% if (groceries.length === 0) { %>
+      <p>There are no Groceries Yet!</p>
   
     <% } else { %>
 
       
       <ul>
-        <%todos.forEach((t) => { %>
-          <li><%=t.todo %>
-            <form action="/<%=t.id%>?_method=DELETE" method="POST">
+        <%groceries.forEach((g) => { %>
+          <li><%= g.grocerie %>
+            <form action="/<%=g.id%>?_method=DELETE" method="POST">
               <input type="submit" value="x">
+            </form>
+            <form action="/<%=g.id%>?_method=PUT" method="POST">
+              <input type="text" name="grocerie">
+              <button type="submit">Edit</button>
             </form>
           </li>
           <% }) %>
         </ul>
         <%}%>
         <form action="/" method="POST">
-          <input type="text" name="todo">
-          <button type="submit">Add todo</button>
+          <input type="text" name="grocerie">
+          <button type="submit">Add Groceries</button>
         </form>
       </body>
 </html>

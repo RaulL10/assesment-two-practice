@@ -1,11 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-const todosCtrl = require('../controllers/todos')
+const groceriesCtrl = require('../controllers/groceries')
 
-router.get('/', todosCtrl.index)
-router.post('/', todosCtrl.create)
-router.delete('/:id', todosCtrl.delete)
+router.get('/', groceriesCtrl.index)
+router.post('/', groceriesCtrl.create)
+router.delete('/:id', groceriesCtrl.delete)
+router.get('/:id/edit', groceriesCtrl.edit);
+router.put('/:id', groceriesCtrl.update);
+
 
 
 /* GET home page. */
